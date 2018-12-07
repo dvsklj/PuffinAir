@@ -41,8 +41,16 @@ CREATE TABLE `fluege` (
 --
 
 INSERT INTO `fluege` (`PK_Fluege`, `Abflugszeit`, `Ankunftszeit`, `Abflugsort`, `Ankunftsort`) VALUES
-(1, '2018-12-12 09:00:00', '2018-12-12 10:00:00', 'Keflavik', 'London Heathrow');
+(1, '2018-12-12 09:00:00', '2018-12-12 12:00:00', 'Keflavik KEF', 'London Heathrow LHR');
 
+INSERT INTO `fluege` (`PK_Fluege`, `Abflugszeit`, `Ankunftszeit`, `Abflugsort`, `Ankunftsort`) VALUES
+(2, '2018-12-12 07:30:00', '2018-12-12 11:00:00', 'Keflavik KEF', 'Zuerich ZRH');
+
+INSERT INTO `fluege` (`PK_Fluege`, `Abflugszeit`, `Ankunftszeit`, `Abflugsort`, `Ankunftsort`) VALUES
+(3, '2018-12-12 11:30:00', '2018-12-12 16:00:00', 'Keflavik KEF', 'New York JFK');
+
+INSERT INTO `fluege` (`PK_Fluege`, `Abflugszeit`, `Ankunftszeit`, `Abflugsort`, `Ankunftsort`) VALUES
+(4, '2018-12-12 12:15:00', '2018-12-12 21:00:00', 'Keflavik KEF', 'Vancouver YVR');
 --
 -- Indizes der exportierten Tabellen
 --
