@@ -15,7 +15,7 @@
 <body>
 <?php
 include("database/db_connection.php");
-//print_r(getAbflugsort());
+$abflugOrte = getAbflugsorte();
 ?>
   <h1 onClick="parent.location='index.php'" style="cursor:pointer;">PUFFIN<span style="color: white">AIR</span></h1>
 	<div class="main-agileinfo">
@@ -33,12 +33,28 @@ include("database/db_connection.php");
 						<form class="seachcontent" action="#" method="post">
 							<div class="from">
 								<h3>Von</h3>
-								<input type="text" name="city" class="city1" placeholder="Abflugort eingeben" required="" autocomplete="off">
-							</div>
+								<input type="text" list="abflugsort" name="city" class="city1" placeholder="Abflugort eingeben"  required="" autocomplete="off">
+                                <datalist id="abflugsort">
+                                    <?php
+                                    foreach ($abflugOrte as $abflugOrt) {
+                                        echo '<option value="'.$abflugOrt.'">';
+                                    }
+                                    ?>
+
+                                </datalist>
+                            </div>
 							<div class="to">
 								<h3>Nach</h3>
-								<input type="text" name="city" class="city2" placeholder="Ankunftsort eingeben" required="" autocomplete="off">
-							</div>
+								<input type="text" list="abflugsort" name="city" class="city2" placeholder="Ankunftsort eingeben" required="" autocomplete="off">
+                                <datalist id="abflugsort">
+                                    <?php
+                                    foreach ($abflugOrte as $abflugOrt) {
+                                        echo '<option value="'.$abflugOrt.'">';
+                                    }
+                                    ?>
+
+                                </datalist>
+                            </div>
 
 
 
@@ -174,8 +190,8 @@ include("database/db_connection.php");
 							<div class="numofppl">
 								<div class="adults">
 									<h3>Personen:</h3>
-									<div class="quantity"> 
-										<div class="quantity-select">                           
+									<div class="quantity">
+										<div class="quantity-select">
 											<div class="entry value-minus">&nbsp;</div>
 											<div class="entry value"><span>1</span></div>
 											<div class="entry value-plus active">&nbsp;</div>
