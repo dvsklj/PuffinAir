@@ -7,11 +7,12 @@
  */
 
 $conflights = mysqli_connect("localhost", "root", "", "puffinair");
+
 //gives back all attractions ordered by provided value
-function getAbflugsortMatch($input){
+function getAbflugsort(){
     $alle = [];
     global$conflights;
-    $departures = mysqli_query($conflights, "SELECT Abflugsort from flugroute where Abflugsort LIKE '$input%'");
+    $departures = mysqli_query($conflights, "SELECT Abflugsort from flugroute");
     while ($departure = mysqli_fetch_array($departures)) {
         $alle[] = $departure;
     }

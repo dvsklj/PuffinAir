@@ -32,16 +32,43 @@ h1,h2,h3,h4,h5,h6{
 	font-family: 'Montserrat', sans-serif;
 	
 }
+
+
+.overviewhinflug {
+	background-color: white;
+	padding: 30px 30px 20px 30px;
+	border-radius: 10px;
+}
+
+.overviewruckflug {
+	background-color: white;
+	padding: 30px 30px 20px 30px;
+	border-radius: 10px;
+}
+
+.splitter {
+	background-color: transparent;
+	height: 20px;
+}
+
+.smallsplit {
+	background-color: black;
+	height: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
 h1{
 	color:#FF871C;
 	font-size:50px;
-	margin-top:50px;
+	margin-top:30px;
 	text-align:center;
   font-family: "Helvetica";
   font-weight: 600;
 }
 .main-agileinfo{
-	margin:50px auto;
+	margin:30px auto;
 	width:50%;
 }
 /*--SAP--*/
@@ -61,7 +88,8 @@ h1{
     padding: 15px 0px;
     margin: 0 auto;
     text-align: center;
-	  background: #FF871C;
+	background: #FF871C;
+	border-radius: 12px 12px 12px 12px;
 }
 .resp-tab-item {
     font-size: 1.1em;
@@ -88,8 +116,15 @@ h1{
 }
 .resp-tabs-container {
 	padding: 0px;
-	clear: left;	
+	clear: left;
 }
+
+.seachcontent {
+	border-radius: 12px 12px 12px 12px;
+	background-color: rgb(0, 0, 0, 0.4);
+}
+
+
 h2.resp-accordion {
 	cursor: pointer;
 	padding: 5px;
@@ -107,9 +142,16 @@ form {
 }
 h3 {
     font-size: 16px;
-    color:#ff9900;
+    color: #FF871C;
     margin-bottom: 7px;
+	font-weight: 600;
 }
+
+.city1, .city2, #datepicker, #datepicker1{
+	border: none;
+	border-radius: 4px;
+}
+
 .from,.to,.date,.depart,.return{
 	width:48%;
 	float:left;
@@ -327,7 +369,7 @@ form.blackbg{
 }
 /*-- //load-more --*/
 .footer-w3l {
-    margin: 50px 0 15px 0;
+    margin-top: -10px;
 }
 .footer-w3l p{
 	font-size:14px;
@@ -341,6 +383,39 @@ form.blackbg{
 .footer-w3l p a:hover{
 	text-decoration:underline;
 }
+
+.newsearch {
+	border-radius: 6px;
+}
+
+#generator {
+	border-radius: 6px;
+}
+
+.searchflight {
+	border-radius: 6px;
+}
+
+#pdfcontent {
+	display: none;
+	float: left;
+}
+
+.pdftitle {
+	color:#FF871C;
+	font-size:50px;
+	font-family: "Helvetica";
+	font-weight: 600;
+	margin-left: 400px;
+}
+
+.pdfbuchungsbestaetigung {
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 50px;
+	font-family: "Helvetica";
+}
+
 /*-- responsive --*/
  @media (max-width:1440px){
 	.checkbox {

@@ -1,8 +1,3 @@
-/*! jQuery UI - v1.9.2 - 2012-11-23
-* http://jqueryui.com
-* Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.resizable.js, jquery.ui.selectable.js, jquery.ui.sortable.js, jquery.ui.effect.js, jquery.ui.accordion.js, jquery.ui.autocomplete.js, jquery.ui.button.js, jquery.ui.datepicker.js, jquery.ui.dialog.js, jquery.ui.effect-blind.js, jquery.ui.effect-bounce.js, jquery.ui.effect-clip.js, jquery.ui.effect-drop.js, jquery.ui.effect-explode.js, jquery.ui.effect-fade.js, jquery.ui.effect-fold.js, jquery.ui.effect-highlight.js, jquery.ui.effect-pulsate.js, jquery.ui.effect-scale.js, jquery.ui.effect-shake.js, jquery.ui.effect-slide.js, jquery.ui.effect-transfer.js, jquery.ui.menu.js, jquery.ui.position.js, jquery.ui.progressbar.js, jquery.ui.slider.js, jquery.ui.spinner.js, jquery.ui.tabs.js, jquery.ui.tooltip.js
-* Copyright 2012 jQuery Foundation and other contributors; Licensed MIT */
-
 (function( $, undefined ) {
 
 var uuid = 0,
@@ -15,6 +10,23 @@ $.ui = $.ui || {};
 if ( $.ui.version ) {
 	return;
 }
+
+//PDF Generator
+    $('#generator').click(function() {
+        var doc = new jsPDF();
+        var elementHandler = {
+            '#ignorePDF': function (element, renderer) {
+                return true;
+            }
+        };
+        doc.fromHTML($('#pdfcontent')[0], 15,
+            15,
+            {
+                'width': 180,'elementHandlers': elementHandler
+            });
+        doc.save('puffinair.pdf');
+    });
+
 
 $.extend( $.ui, {
 	version: "1.9.2",
@@ -7660,7 +7672,6 @@ $.extend(Datepicker.prototype, {
 	   @param  value   any - the new value for the setting
 	                   (omit if above is an object or to retrieve a value) */
 	_optionDatepicker: function(target, name, value) {
-		var inst = this._getInst(target);
 		if (arguments.length == 2 && typeof name == 'string') {
 			return (name == 'defaults' ? $.extend({}, $.datepicker._defaults) :
 				(inst ? (name == 'all' ? $.extend({}, inst.settings) :
