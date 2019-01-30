@@ -32,7 +32,7 @@ include("database/db_connection.php");
 
                             <p style="font-size: 20px; font-weight: 600; display: inline;">Zürich (ZRH)</p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;">Keflavik (KEF)</p> </br> </br>
                             <p>01.03.2019</p> <p>12:15</p>
-                            <p style="display: inline;"><?php $test = getAbflugsort(); echo $test[1]['Abflugsort']?></p> <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">479.- CHF</p>
+                            <p style="display: inline;">Boeing 777-300ER</p> <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">479.- CHF</p>
                         </div>
 
                         <div class="splitter">
