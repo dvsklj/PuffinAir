@@ -16,6 +16,9 @@
 <?php
 include("database/db_connection.php");
 $abflugOrte = getAbflugsorte();
+$ankunftOrt = getAnkunftsorte();
+//print_r ($abflugOrte);
+//print_r ($ankunftOrt);
 ?>
   <h1 onClick="parent.location='index.php'" style="cursor:pointer;">PUFFIN<span style="color: white">AIR</span></h1>
 	<div class="main-agileinfo">
@@ -30,10 +33,10 @@ $abflugOrte = getAbflugsorte();
 					<div class="tab-1 resp-tab-content roundtrip">
 
                         <div class="splitter"> </div>
-						<form class="seachcontent" action="#" method="post">
+						<form class="seachcontent" action="overview.php" method="post">
 							<div class="from">
 								<h3>Von</h3>
-								<input type="text" list="abflugsort" name="city" class="city1" placeholder="Abflugort eingeben"  required="" autocomplete="off">
+								<input type="text" list="abflugsort" name="cityfrom" class="city1" placeholder="Abflugort eingeben"  required="" autocomplete="off">
                                 <datalist id="abflugsort">
                                     <?php
                                     foreach ($abflugOrte as $abflugOrt) {
@@ -45,11 +48,11 @@ $abflugOrte = getAbflugsorte();
                             </div>
 							<div class="to">
 								<h3>Nach</h3>
-								<input type="text" list="abflugsort" name="city" class="city2" placeholder="Ankunftsort eingeben" required="" autocomplete="off">
+								<input type="text" list="abflugsort" name="cityto" class="city2" placeholder="Ankunftsort eingeben" required="" autocomplete="off">
                                 <datalist id="abflugsort">
                                     <?php
-                                    foreach ($abflugOrte as $abflugOrt) {
-                                        echo '<option value="'.$abflugOrt.'">';
+                                    foreach ($ankunftOrte as $ankunftOrt) {
+                                        echo '<option value="'.$ankunftOrt.'">';
                                     }
                                     ?>
 
@@ -178,11 +181,11 @@ $abflugOrte = getAbflugsorte();
 							<div class="date">
 								<div class="depart">
 									<h3>Hinflug</h3>
-									<input  id="datepicker" name="Text" type="text" value="Datum auswählen" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="" autocomplete="off">
+									<input  id="datepicker" name="depart" type="text" value="Datum auswählen" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="" autocomplete="off">
 								</div>
 								<div class="return">
 									<h3>Rückflug</h3>
-									<input  id="datepicker1" name="Text" type="text" value="Datum auswählen" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="" autocomplete="off">
+									<input  id="datepicker1" name="return" type="text" value="Datum auswählen" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="" autocomplete="off">
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -201,7 +204,7 @@ $abflugOrte = getAbflugsorte();
 								<div class="clear"></div>
 							</div>
 							<div class="clear"></div>
-							<input class="searchflight" type="submit" value="Flüge suchen" onClick="parent.location='overview.php'">
+							<input class="searchflight" type="submit" value="Flüge suchen">
 						</form>						
 					</div>
 

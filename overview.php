@@ -15,7 +15,22 @@
 <body>
 <?php
 include("database/db_connection.php");
+//$flugnummer = getAbflugnummer ();
 //print_r(getAbflugsort());
+//print_r(getAbflugnummer ());
+$cityfrom = $_POST['cityfrom'];
+$cityto = $_POST['cityto'];
+$cityto1 = $_POST['cityfrom'];
+$cityfrom1 = $_POST['cityto'];
+//$flugnummer = $_POST['flugnummer'];
+$abflugnummer = (getAbflugnummer($cityfrom, $cityto));
+$ankunftnummer = (getAnkunftnummer($cityto1, $cityfrom1));
+$flugzeugtyp = (getFlugzeugtyp($cityfrom, $cityto));
+$flugzeugtyp1 = (getFlugzeugtyp1($cityto1, $cityfrom1));
+$preis = (getPreis($cityfrom, $cityto));
+$preis1 = (getPreis($cityto1, $cityfrom1));
+$zeit = (getAbflugszeit($cityfrom, $cityto));
+$zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
 ?>
 <h1 onClick="parent.location='index.php'" style="cursor:pointer;">PUFFIN<span style="color: white">AIR</span></h1>
 <div class="main-agileinfo">
@@ -27,12 +42,43 @@ include("database/db_connection.php");
                         <div class="splitter"> </div>
 
                         <div class="overviewhinflug">
-                            <p style="font-size: 22px; display: inline; font-weight: 600;">Ihr Hinflug</p> <img style="display: inline; margin-bottom: -8px; padding-left: 10px;" src="images/plane-to.jpg" alt="plane icon" height="30" width="30"><p style="font-weight: 600; font-size: 22px; display: inline; float: right;">FI509</p>
+                            <p style="font-size: 22px; display: inline; font-weight: 600;">Ihr Hinflug</p> <img style="display: inline; margin-bottom: -8px; padding-left: 10px;" src="images/plane-to.jpg" alt="plane icon" height="30" width="30"><p style="font-weight: 600; font-size: 22px; display: inline; float: right;">
+                                <?php
+                                foreach($abflugnummer as $flight)
+                                {
+                                    echo $flight[0];
+                                }
+                                ?>
+                            </p>
                             <div class="smallsplit"> </div>
 
-                            <p style="font-size: 20px; font-weight: 600; display: inline;">Zürich (ZRH)</p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;">Keflavik (KEF)</p> </br> </br>
-                            <p>01.03.2019</p> <p>12:15</p>
-                            <p style="display: inline;">Boeing 777-300ER</p> <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">479.- CHF</p>
+                            <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityfrom = $_POST['cityfrom']; echo $cityfrom?></p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityto = $_POST['cityto']; echo $cityto?></p> </br> </br>
+                            <?php
+                            $departdate = $_POST['depart'];
+                            echo $departdate
+                            ?> <p>
+                                <?php
+                                foreach($zeit as $zeithin)
+                                {
+                                    echo "Abflugszeit: " . substr($zeithin[0],0, -3);
+                                }
+                                ?>
+                            </p>
+                            <p style="display: inline;">
+                                <?php
+                                foreach($flugzeugtyp as $fliegertyp)
+                                {
+                                    echo "Typ: " . $fliegertyp[0];
+                                }
+                                ?>
+                            </p> <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">
+                                <?php
+                                foreach($preis as $preishin)
+                                {
+                                    echo $preishin[0] . ".- / Person";
+                                }
+                                ?>
+                            </p>
                         </div>
 
                         <div class="splitter">
@@ -40,12 +86,42 @@ include("database/db_connection.php");
                         </div>
 
                         <div class="overviewruckflug">
-                            <p style="font-size: 22px; display: inline; font-weight: 600;">Ihr Rückflug</p> <img style="display: inline; margin-bottom: -8px; padding-left: 10px;" src="images/plane-back.jpg" alt="plane icon" height="30" width="30"><p style="font-weight: 600; font-size: 22px; display: inline; float: right;">FI510</p>
+                            <p style="font-size: 22px; display: inline; font-weight: 600;">Ihr Rückflug</p> <img style="display: inline; margin-bottom: -8px; padding-left: 10px;" src="images/plane-back.jpg" alt="plane icon" height="30" width="30"><p style="font-weight: 600; font-size: 22px; display: inline; float: right;">
+                                <?php
+                                foreach($ankunftnummer as $flight1)
+                                {
+                                    echo $flight1[0];
+                                }
+                                ?>
+                            </p>
                             <div class="smallsplit"> </div>
 
-                            <p style="font-size: 20px; font-weight: 600; display: inline;">Keflavik (KEF)</p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;">Zürich (ZRH)</p> </br> </br>
-                            <p>04.03.2019</p> <p>07:40</p>
-                            <p style="display: inline;">Boeing 777-300ER</p> <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">552.- CHF</p>
+                            <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityto = $_POST['cityto']; echo $cityto?></p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityfrom = $_POST['cityfrom']; echo $cityfrom?></p> </br> </br>
+                            <?php
+                            $returndate = $_POST['return'];
+                            echo $returndate
+                            ?>  <p>
+                                <?php
+                                foreach($zeit1 as $zeitzurueck)
+                                {
+                                    echo "Abflugszeit: " . substr($zeitzurueck[0],0, -3);
+                                }
+                                ?>
+                            </p>
+                            <p style="display: inline;">
+                                <?php
+                                foreach($flugzeugtyp1 as $fliegertyp1)
+                                    echo "Typ: " . $fliegertyp1[0];
+                                ?>
+                            </p>
+                            <p style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">
+                                <?php
+                                foreach($preis as $preiszurueck)
+                                {
+                                    echo $preiszurueck[0] . ".- / Person";
+                                }
+                                ?>
+                            </p>
                         </div>
 
                         <div>
@@ -55,7 +131,87 @@ include("database/db_connection.php");
 
             <div id="pdfcontent">
                 <p class="pdftitle">PuffinAir</p>
-                <p class="pdfbuchungsbestaetigung">Ihre Buchungsbestätigung:</p>
+                <p class="pdfbuchungsbestaetigung">Ihre Buchungsbestätigung:</p> </br> </br>
+                <p class="hinflugtitel" style="font-size: 22px; display: inline; font-weight: 600; padding-bottom: 10px;">Ihr Hinflug</p> </br>
+                <p class="hinflugorte" style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityfrom = $_POST['cityfrom']; echo $cityfrom?></p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityto = $_POST['cityto']; echo $cityto?></p> </br>
+                <p style="padding-top: 10px;" class="flugnummerhinflug">
+                    <?php
+                    foreach($abflugnummer as $flight)
+                    {
+                        echo $flight[0];
+                    }
+                    ?>
+                </p>
+                <p class="datumhinflug">
+                    <?php
+                    $departdate = $_POST['depart'];
+                    echo $departdate
+                    ?>
+                </p>
+                <p class="zeithinflug">
+                    <?php
+                    foreach($zeit as $zeithin)
+                    {
+                        echo "Abflugszeit: " . substr($zeithin[0],0, -3);
+                    }
+                    ?>
+                </p>
+                <p class="flugzeugtyphin">
+                    <?php
+                    foreach($flugzeugtyp as $fliegertyp)
+                    {
+                        echo "Typ: " . $fliegertyp[0];
+                    }
+                    ?>
+                </p>
+                <p class="preishin" style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">
+                    <?php
+                    foreach($preis as $preishin)
+                    {
+                        echo $preishin[0] . ".- / Person";
+                    }
+                    ?>
+                </p>
+                </br>
+                </br>
+                <p class="rueckflugtitel" style="font-size: 22px; display: inline; font-weight: 600;">Ihr Rückflug</p> </br>
+                <p class="rueckflugorte" style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityto = $_POST['cityto']; echo $cityto?></p> <p style="display: inline;">-</p> <p style="font-size: 20px; font-weight: 600; display: inline;"><?php $cityfrom = $_POST['cityfrom']; echo $cityfrom?></p> </br>
+                <p class="flugnummerrueckflug">
+                    <?php
+                    foreach($ankunftnummer as $flight1)
+                    {
+                        echo $flight1[0];
+                    }
+                    ?>
+                </p>
+                <p class="datumrueckflug">
+                    <?php
+                    $returndate = $_POST['return'];
+                    echo $returndate
+                    ?>
+                </p>
+                <p class="zeitrueckflug">
+                    <?php
+                    foreach($zeit1 as $zeitzurueck)
+                    {
+                        echo "Abflugszeit: " . substr($zeitzurueck[0],0, -3);
+                    }
+                    ?>
+                </p>
+                <p class="flugzeugtypzurueck">
+                    <?php
+                    foreach($flugzeugtyp1 as $fliegertyp1)
+                        echo "Typ: " . $fliegertyp1[0];
+                    ?>
+                </p>
+                <p class="preiszurueck" style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">
+                    <?php
+                    foreach($preis as $preiszurueck)
+                    {
+                        echo $preiszurueck[0] . ".- / Person";
+                    }
+                    ?>
+                </p>
             </div>
 
             <div class="splitter">
