@@ -25,7 +25,7 @@ $ankunftOrt = getAnkunftsorte();
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">
-                    <li style="cursor: default;" class="resp-tab-item"><span>From Iceland to the world. </br> <span style="font-size: 14px;">Book flights from or to Keflavik (KEF)</span></span></li>
+                    <li style="cursor: default;" class="resp-tab-item"><span>From Iceland to the world. </br> <span style="font-size: 14px; text-transform: none; color: white;">Book flights from or to Keflavik (KEF)</span></span></li>
 
 				</ul>	
 				<div class="clearfix"> </div>	
