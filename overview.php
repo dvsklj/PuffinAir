@@ -118,7 +118,7 @@ $zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
                                 <?php
                                 foreach($preis as $preiszurueck)
                                 {
-                                    echo $preiszurueck[0] . ".- / Person";
+                                    echo "<span style='font-size: 8px;'> $preiszurueck[0] " . "Person" . "</span>";
                                 }
                                 ?>
                             </p>
