@@ -75,7 +75,7 @@ $zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
                                 <?php
                                 foreach($preis as $preishin)
                                 {
-                                    echo $preishin[0] . ".- / Person";
+                                    echo "$preishin[0].- <span style='font-size: 10px;'>/ Person</span>";
                                 }
                                 ?>
                             </p>
@@ -160,7 +160,7 @@ $zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
                     <?php
                     foreach($flugzeugtyp as $fliegertyp)
                     {
-                        echo "Typ: " . $fliegertyp[0];
+                        echo $fliegertyp[0];
                     }
                     ?>
                 </p>
@@ -201,7 +201,7 @@ $zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
                 <p class="flugzeugtypzurueck">
                     <?php
                     foreach($flugzeugtyp1 as $fliegertyp1)
-                        echo "Typ: " . $fliegertyp1[0];
+                        echo $fliegertyp1[0];
                     ?>
                 </p>
                 <p class="preiszurueck" style="font-weight: 600; display: inline; float: right; font-size: 22px; margin-top: -7px;">
