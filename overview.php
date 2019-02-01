@@ -15,14 +15,10 @@
 <body>
 <?php
 include("database/db_connection.php");
-//$flugnummer = getAbflugnummer ();
-//print_r(getAbflugsort());
-//print_r(getAbflugnummer ());
 $cityfrom = $_POST['cityfrom'];
 $cityto = $_POST['cityto'];
 $cityto1 = $_POST['cityfrom'];
 $cityfrom1 = $_POST['cityto'];
-//$flugnummer = $_POST['flugnummer'];
 $abflugnummer = (getAbflugnummer($cityfrom, $cityto));
 $ankunftnummer = (getAnkunftnummer($cityto1, $cityfrom1));
 $flugzeugtyp = (getFlugzeugtyp($cityfrom, $cityto));

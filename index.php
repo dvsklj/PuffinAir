@@ -189,6 +189,8 @@ $ankunftOrt = getAnkunftsorte();
 								</div>
 								<div class="clear"></div>
 							</div>
+							<div class="clear"></div>
+							<div class="clear"></div>
 							<input class="searchflight" type="submit" value="Flüge suchen">
 						</form>						
 					</div>
@@ -222,19 +224,6 @@ $ankunftOrt = getAnkunftsorte();
 						  });
 				  </script>
 			<!-- //Calendar -->
-			<!--quantity-->
-									<script>
-									$('.value-plus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
-
-									$('.value-minus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
-									</script>
-								<!--//quantity-->
 						<!--load more-->
 								<script>
 	$(document).ready(function () {
