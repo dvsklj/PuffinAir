@@ -30,7 +30,7 @@ $flugzeugtyp1 = (getFlugzeugtyp1($cityto1, $cityfrom1));
 $preis = (getPreis($cityfrom, $cityto));
 $preis1 = (getPreis($cityto1, $cityfrom1));
 $zeit = (getAbflugszeit($cityfrom, $cityto));
-$zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
+$zeit1 = (getAbflugszeit1($cityto1, $cityfrom1));
 ?>
 <h1 onClick="parent.location='index.php'" style="cursor:pointer;">PUFFIN<span style="color: white">AIR</span></h1>
 <div class="main-agileinfo">
@@ -56,7 +56,8 @@ $zeit1 = (getAbflugszeit1($cityto1, $cityfrom1))
                             <?php
                             $departdate = $_POST['depart'];
                             echo $departdate
-                            ?> <p>
+                            ?>
+                            <p>
                                 <?php
                                 foreach($zeit as $zeithin)
                                 {

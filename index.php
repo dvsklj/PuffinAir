@@ -189,21 +189,6 @@ $ankunftOrt = getAnkunftsorte();
 								</div>
 								<div class="clear"></div>
 							</div>
-							<div class="clear"></div>
-							<div class="numofppl">
-								<div class="adults">
-									<h3>Personen:</h3>
-									<div class="quantity">
-										<div class="quantity-select">
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
 							<input class="searchflight" type="submit" value="Flüge suchen">
 						</form>						
 					</div>
